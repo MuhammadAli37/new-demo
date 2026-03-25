@@ -40,11 +40,11 @@ on:
       app_instance_type:
         description: EC2 instance type for the app servers
         required: false
-        default: t2.micro
+        default: t3.micro
       bastion_instance_type:
         description: EC2 instance type for the bastion host
         required: false
-        default: t2.micro
+        default: t3.micro
 
 permissions:
   contents: read
@@ -62,8 +62,8 @@ env:
   EC2_KEY_NAME: ${{ github.event.inputs.key_name || vars.EC2_KEY_NAME || '' }}
   BASTION_ALLOWED_SSH_CIDR: ${{ github.event.inputs.bastion_allowed_ssh_cidr || vars.BASTION_ALLOWED_SSH_CIDR || '0.0.0.0/0' }}
   DESIRED_CAPACITY: ${{ github.event.inputs.desired_capacity || vars.DESIRED_CAPACITY || '3' }}
-  APP_INSTANCE_TYPE: ${{ github.event.inputs.app_instance_type || vars.APP_INSTANCE_TYPE || 't2.micro' }}
-  BASTION_INSTANCE_TYPE: ${{ github.event.inputs.bastion_instance_type || vars.BASTION_INSTANCE_TYPE || 't2.micro' }}
+  APP_INSTANCE_TYPE: ${{ github.event.inputs.app_instance_type || vars.APP_INSTANCE_TYPE || 't3.micro' }}
+  BASTION_INSTANCE_TYPE: ${{ github.event.inputs.bastion_instance_type || vars.BASTION_INSTANCE_TYPE || 't3.micro' }}
   AWS_ROLE_TO_ASSUME_SECRET: ${{ secrets.AWS_ROLE_TO_ASSUME }}
   AWS_ACCESS_KEY_ID_SECRET: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY_SECRET: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
